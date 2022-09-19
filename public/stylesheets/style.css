@@ -1,0 +1,35 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+/*----------------------------------------------- INDEX PAGE */
+.heroImg img {
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  z-index: -20;
+}
+.topRightImg img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  z-index: -10;
+}
+
+/*----------------------------------------------- LOGIN PAGE */
+.loginContainer.container {
+  margin-top: 10%;
+}
+.login_form_group {
+  margin-bottom: 20px;
+}
+/*----------------------------------------------- REGISTER PAGE */
+.register_form_group {
+  margin-bottom: 20px;
+}

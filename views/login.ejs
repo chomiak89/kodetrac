@@ -1,0 +1,43 @@
+<%- include('partials/header-login.ejs') %>
+<div class="loginContainer container">
+  <div class="col-md-6 m-auto">
+    <div class="card-body text-center">
+      <i class="fa-solid fa-right-to-bracket fa-5x"></i>
+      <% include partials/messages %>
+      <form class="m-auto" action="login" method="POST" style="width: 30rem">
+        <div class="login_form_group form-group text-start">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control"
+            placeholder="Enter Username"
+          />
+        </div>
+        <div class="login_form_group form-group text-start">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter Password"
+          />
+        </div>
+        <div class="login_form_group form-group text-center">
+          <button
+            type="submit"
+            class="btn btn-outline-primary"
+            style="width: 10rem"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+      <p class="lead mt-4 text-center">
+        No Account? <a href="register">Register</a>
+      </p>
+    </div>
+  </div>
+</div>
