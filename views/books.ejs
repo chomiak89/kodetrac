@@ -1,0 +1,21 @@
+<%- include('partials/header-session.ejs') %>
+<link rel="stylesheet" href="/stylesheets/books.css" />
+
+<!-- ---- -->
+<div class="heading-container container">
+  <h3>Featured books</h3>
+</div>
+<div class="book-container container">
+  <%books.forEach(book => {%>
+  <div class="book-card card-body">
+    <!-- prettier-ignore -->
+    <a href=<%=book.url%>>
+        <img class="book-image zoom" src=<%=book.image%> alt="">
+    </a>
+    <h5 class="book-title"><%=book.title%></h5>
+    <!-- prettier-ignore -->
+    <p class="book-price"><%=book.price%><a class="book-button btn btn-secondary nav-link" href=<%=book.url%>>Purchase</a>
+    </p>
+  </div>
+  <%})%>
+</div>

@@ -1,0 +1,139 @@
+.snippets-page-container {
+  overflow: auto;
+  margin-top: 100px;
+}
+.snippets_main_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.snippet_container {
+  margin: 50px;
+  width: 500px;
+  height: 250px;
+  position: relative;
+}
+.flask > .codeflask {
+  max-width: 500px;
+  max-height: 200px;
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.codeflask__textarea {
+  font-size: 15px;
+  background-color: #253031;
+  color: #253031;
+  caret-color: #fff;
+}
+.codeflask__pre {
+  font-size: 13px;
+}
+.bottom_nav {
+  position: relative;
+  top: 210px;
+  left: 0;
+  width: 100%;
+}
+.snip-delete-btn {
+  width: 8rem;
+  height: 1.74rem;
+  padding: 3px 16px 4px 16px;
+  margin: 0 0 0 -1px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.editor-icon {
+  vertical-align: middle;
+}
+.yellow {
+  color: rgb(238, 238, 47);
+  background-color: black;
+  height: 18px;
+  margin-top: 6px;
+  padding-top: 5px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+.red {
+  color: red;
+  background-color: #c4cacb;
+  height: 28px;
+  width: 30px;
+  padding-top: 14px;
+  padding-left: 6px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+.blue {
+  color: blue;
+  background-color: #c4cacb;
+  height: 28px;
+  width: 30px;
+  padding-top: 14px;
+  padding-left: 6px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+/* things for DB
+random: name (for label), id
+label value = string */
+
+/* sid = to create editor */
+
+/* CREATED DELETE FORM FUNCTIONS. NEED TO CREATE DELETE ROUTE */
+
+.codeflask {
+  color: #ffffff;
+}
+.codeflask .token.punctuation {
+  color: #909596;
+}
+.codeflask .token.keyword {
+  color: #5db1db;
+}
+.codeflask .token.operator {
+  color: #ff5598;
+}
+.codeflask .token.string {
+  color: #41ad8f;
+}
+.codeflask .token.comment {
+  color: #9badb7;
+}
+.codeflask .token.function {
+  color: #edc34e;
+}
+.codeflask .token.boolean {
+  color: #edc34e;
+}
+.codeflask .token.number {
+  color: #edc34e;
+}
+.codeflask .token.selector {
+  color: #edc34e;
+}
+.codeflask .token.property {
+  color: #edc34e;
+}
+.codeflask .token.tag {
+  color: #edc34e;
+}
+.codeflask .token.attr-value {
+  color: #edc34e;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: -10;
+}

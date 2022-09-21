@@ -1,2 +1,80 @@
 <%- include('partials/header-session.ejs') %>
-<h1>dashboard</h1>
+<link rel="stylesheet" href="/stylesheets/dashboard.css" />
+<div id="particles-js"></div>
+<div class="dash-container container">
+  <h4>Welcome <%=userInSession.username%></h4>
+  <div class="card">
+    <div class="card-body">
+      <h5><%=quote.en%></h5>
+      <p class="quote-author">- <%=quote.author%></p>
+    </div>
+  </div>
+  <div class="widget-container container">
+    <div draggable="true" class="widget">
+      <h1>1</h1>
+      <p>Something here</p>
+      <h5>heading</h5>
+    </div>
+    <div draggable="true" class="widget">
+      <h1>2</h1>
+    </div>
+    <div draggable="true" class="widget">
+      <h1>3</h1>
+      <p>this</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="/javascripts/particles.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    function handleDragStart(e) {
+      this.style.opacity = "0.4";
+      dragSrcEl = this;
+
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.setData("text/html", this.innerHTML);
+    }
+
+    function handleDragEnd(e) {
+      this.style.opacity = "1";
+
+      items.forEach(function (item) {
+        item.classList.remove("over");
+      });
+    }
+
+    function handleDragOver(e) {
+      e.preventDefault();
+      return false;
+    }
+
+    function handleDragEnter(e) {
+      this.classList.add("over");
+    }
+
+    function handleDragLeave(e) {
+      this.classList.remove("over");
+    }
+
+    function handleDrop(e) {
+      e.stopPropagation(); // stops the browser from redirecting.
+      if (dragSrcEl !== this) {
+        dragSrcEl.innerHTML = this.innerHTML;
+        this.innerHTML = e.dataTransfer.getData("text/html");
+      }
+      return false;
+    }
+
+    let items = document.querySelectorAll(".widget-container .widget");
+    items.forEach(function (item) {
+      item.addEventListener("dragstart", handleDragStart);
+      item.addEventListener("dragover", handleDragOver);
+      item.addEventListener("dragenter", handleDragEnter);
+      item.addEventListener("dragleave", handleDragLeave);
+      item.addEventListener("dragend", handleDragEnd);
+      item.addEventListener("drop", handleDrop);
+    });
+  });
+</script>

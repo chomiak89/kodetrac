@@ -1,0 +1,137 @@
+<%- include('partials/header-session.ejs') %>
+<div id="particles-js"></div>
+<div class="snippets-page-container container">
+  <div class="row">
+    <a
+      class="btn btn-secondary m-auto"
+      style="width: 10rem"
+      href="/user/snippets/create"
+      >New Snippet</a
+    >
+  </div>
+  <div class="snippets_main_container">
+    <!-- <div class="snippet_container">
+      <label for="test">A snippet</label>
+      <div class="flask" name="test" id="testing"></div>
+      <div class="bottom_nav">
+        <i class="fa-brands fa-js fa-2xl"></i>
+        <a href="">Delete</a>
+      </div>
+    </div> -->
+    <!-- <div class="snippet_container">
+      <label for="test2">Other Snippet</label>
+      <div class="flask" name="test2" id="flask2"></div>
+    </div> -->
+  </div>
+</div>
+
+<link rel="stylesheet" href="/stylesheets/snippetsStyles.css" />
+<script src="/javascripts/test2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="/javascripts/particles.js"></script>
+<script>
+  //FUNCTION TO BUILD OUT AND CREATE A SNIPPET
+  createSnippet = (name, sid, code, lang, label) => {
+    //create HTML elements
+    const contDiv = document.createElement("div");
+    const flaskDiv = document.createElement("div");
+    const labl = document.createElement("label");
+    const bottomDiv = document.createElement("div");
+    const form = document.createElement("form");
+    const button = document.createElement("button");
+    const logo = document.createElement("i");
+    //assign classes
+    contDiv.classList.add("snippet_container");
+    flaskDiv.classList.add("flask");
+    bottomDiv.classList.add("bottom_nav");
+    button.classList.add("snip-delete-btn", "btn", "btn-dark", "btn-sm");
+    if (lang == "js") {
+      logo.classList.add(
+        "editor-icon",
+        "fa-brands",
+        "fa-js",
+        "fa-2xl",
+        "yellow"
+      );
+    } else if (lang == "html") {
+      logo.classList.add(
+        "editor-icon",
+        "fa-brands",
+        "fa-html5",
+        "fa-xl",
+        "red"
+      );
+    } else if (lang == "css") {
+      logo.classList.add(
+        "editor-icon",
+        "fa-brands",
+        "fa-css3-alt",
+        "fa-xl",
+        "blue"
+      );
+    }
+    //assign other attributes
+    flaskDiv.setAttribute("name", name);
+    flaskDiv.setAttribute("id", sid);
+    labl.setAttribute("for", name);
+    labl.innerHTML = label;
+    form.setAttribute("method", "post");
+    form.setAttribute("action", `/user/snippets/${sid}/delete`);
+    button.innerHTML = "Delete";
+    button.setAttribute("type", "submit");
+    //append children
+    contDiv.appendChild(labl);
+    contDiv.appendChild(flaskDiv);
+    form.appendChild(logo);
+    form.appendChild(button);
+    bottomDiv.appendChild(form);
+    contDiv.append(bottomDiv);
+    //append to DOM
+    document.querySelector(".snippets_main_container").appendChild(contDiv);
+
+    let selected = document.querySelector(`#${sid}`);
+    new Test(selected, { language: lang }).updateCode(code);
+  };
+
+  //CONVERT THE PASSED DATA TO BE USABLE
+  //data sent from backend
+  let rawData = `<%-data%>`;
+  //adding brackets to turn into array of objects
+  let arrData = "[" + rawData + "]";
+  //cleaning up the string to make it a proper json formatted string
+  let newArrData = arrData
+    .replace(/new ObjectId\(/g, "")
+    .replace(/\)/g, "")
+    .replace(/_id/g, '"id"')
+    .replace(/name/g, '"name"')
+    .replace(/sid/g, '"sid"')
+    .replace(/code/g, '"code"')
+    .replace(/lang/g, '"lang"')
+    .replace(/label/g, '"label"')
+    .replace(/uid/g, '"uid"')
+    .replace(/__v/g, '"v"')
+    .replace(/"v": 0/g, '"v": "0"')
+    .replace(/'/g, '"')
+    .replace(/\\n/g, "$$");
+  //converting to a one line string, removing some additional characters
+  let stringifiedData = JSON.stringify(newArrData)
+    .replace(/\\n/g, "")
+    .replace(/\\/g, "");
+  //converting to final editied string, ready to be converted
+  let finalString = stringifiedData.substring(1, stringifiedData.length - 1);
+  //converting to JS array of objects
+  let workingData = JSON.parse(finalString);
+  console.log(workingData);
+
+  workingData.forEach((data) => {
+    //convert code so it displays multiline
+    let str = data.code;
+    console.log("original " + str);
+    str = str.replace(/\^\^/g, "\n").replace(/\^pr/g, "\)");
+    console.log(str);
+    //create the actual snippet on the page
+    createSnippet(data.name, data.sid, str, data.lang, data.label);
+  });
+</script>
+
+<!-- createSnippet('nam1', 's33k', 'let test = 333', 'js', 'It works') -->

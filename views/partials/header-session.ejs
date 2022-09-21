@@ -1,28 +1,44 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <img src="/images/logo.png" style="width: 9rem" alt="" />
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-      <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item">
-          <form action="/auth/logout" method="POST">
-            <button class="btn btn-secondary nav-link" type="submit">
-              Logout
-            </button>
-          </form>
-        </li>
-      </ul>
+<link rel="stylesheet" href="/stylesheets/session-navbar.css" />
+<div class="container">
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <img src="/images/logo.png" style="width: 12rem" alt="" />
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="btn btn-secondary nav-link" href="/user/dashboard"
+              >Dash</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-secondary nav-link" href="/user/snippets"
+              >Snippets</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-secondary nav-link" href="/user/books">Books</a>
+          </li>
+          <li class="nav-item">
+            <form action="/auth/logout" method="POST">
+              <button class="btn btn-secondary nav-link" type="submit">
+                Logout
+              </button>
+            </form>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
