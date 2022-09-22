@@ -9,6 +9,7 @@ const expressLayouts = require("express-ejs-layouts");
 const flash = require("connect-flash");
 const session = require("express-session");
 const axios = require("axios").default;
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -67,6 +68,11 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
+});
+
+//----- LISTENING PORT FOR EXPRESS
+app.listen(port, () => {
+  console.log("Server is listening on port 3000");
 });
 
 module.exports = app;
