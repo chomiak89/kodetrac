@@ -2,7 +2,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   /* overflow: clip; */
 }
-
+html {
+  height: 100vh;
+}
 a {
   color: #00b7ff;
 }
@@ -12,7 +14,7 @@ a {
   width: 50%;
   position: absolute;
   bottom: 0;
-  left: 5%;
+  right: 1%;
   z-index: -20;
 }
 .topRightImg img {
@@ -23,7 +25,7 @@ a {
   top: -200px;
   right: -460px;
   width: 70%;
-  z-index: -10;
+  z-index: -40;
 }
 .bottomLeftImg img {
   z-index: -30;
@@ -44,6 +46,11 @@ a {
 .login_form_group {
   margin-bottom: 20px;
 }
+.login-card {
+  padding-top: 40px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
 /*----------------------------------------------- REGISTER PAGE */
 .register_form_group {
   margin-bottom: 20px;
@@ -54,3 +61,19 @@ a {
   height: 200px;
   background-color: #00b7ff;
 } */
+
+.register-container {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding-top: 10px;
+}
+.register-container.card {
+  width: 70%;
+  margin: 0 auto;
+}
+.hero-text {
+  position: relative;
+  top: 75px;
+  left: 50px;
+  height: 300px;
+}

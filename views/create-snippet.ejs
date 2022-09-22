@@ -1,29 +1,35 @@
 <%- include('partials/header-session.ejs') %>
 <link rel="stylesheet" href="/stylesheets/create-snippet.css" />
+<div id="particles-js"></div>
+<div class="container text-center">
+  <div class="snippets_main_container">
+    <div class="snippet_container text-start">
+      <label for="test">Code goes here</label>
+      <div class="flask" name="test" id="create-test"></div>
+    </div>
+  </div>
 
-<div class="create-snippet-container container">
-  <form action="/user/snippets/create" method="POST">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" placeholder="Name" />
-    <label for="sid">Sid</label>
-    <input type="text" name="sid" id="sid" placeholder="Sid" />
-    <label for="label">Label</label>
-    <input type="text" name="label" id="label" placeholder="Label" />
-    <label for="code">Code</label>
-    <input type="text" name="code" id="code" />
-    <!-- <textarea name="code" id="code" cols="30" rows="10"></textarea> -->
-    <label for="lang">Lang</label>
-    <input type="text" name="lang" id="lang" placeholder="Lang" />
-    <button class="btn btn-primary" type="submit">Create</button>
-  </form>
-</div>
-
-<div class="snippets_main_container">
-  <div class="snippet_container">
-    <label for="test">Code goes here</label>
-    <div class="flask" name="test" id="create-test"></div>
+  <div class="create-snippet-container container">
+    <form action="/user/snippets/create" method="POST">
+      <input type="text" name="name" id="name" placeholder="Name" />
+      <input type="text" name="sid" id="sid" placeholder="Sid" />
+      <label for="label">Title</label>
+      <input type="text" name="label" id="label" placeholder="Title" />
+      <input type="text" name="code" id="code" />
+      <!-- <textarea name="code" id="code" cols="30" rows="10"></textarea> -->
+      <label for="lang">Lang</label>
+      <select id="lang" name="lang">
+        <option value="js">JavaScript</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+      </select>
+      <button class="btn btn-primary btn-sm" type="submit">Create</button>
+    </form>
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="/javascripts/particles.js"></script>
 
 <link rel="stylesheet" href="/stylesheets/snippetsStyles.css" />
 <script src="/javascripts/test2.js"></script>
@@ -45,7 +51,13 @@
   let code = document.querySelector("#code");
   //listen to change in the editor, update the value in input to be sent over
   editor.addEventListener("change", () => {
-    rawCode = snip.getCode().replace(/\n/g, "^^").replace(/\)/g, "^pr");
+    rawCode = snip
+      .getCode()
+      .replace(/\n/g, "^^")
+      .replace(/\)/g, "^pr")
+      .replace(/"/g, "!qt")
+      .replace(/name/g, "$nm$")
+      .replace(/label/g, "!em!");
     code.value = rawCode;
     console.log(rawCode);
   });

@@ -11,22 +11,48 @@
   </div>
   <div class="widget-container container">
     <div draggable="true" class="widget">
-      <h1>1</h1>
-      <p>Something here</p>
-      <h5>heading</h5>
+      <h5 id="widget-1-heading">Color Picker</h5>
+      <div id="color-selection-container">
+        <input type="color" name="" id="color-picker" />
+        <input type="text" id="color-input" value="#000000" />
+      </div>
+      <div id="color-display"></div>
     </div>
     <div draggable="true" class="widget">
-      <h1>2</h1>
+      <img class="article-2-img" src="/images/cat.png" alt="" />
+      <p class="article-2-attr">
+        <a
+          href="https://www.freepik.com/free-vector/cute-cat-working-laptop-cartoon-vector-icon-illustration-animal-technology-icon-concept-isolated_28565598.htm#query=cat%20computer&position=7&from_view=search"
+          >Image by catalyststuff</a
+        >
+        on Freepik
+      </p>
     </div>
     <div draggable="true" class="widget">
-      <h1>3</h1>
-      <p>this</p>
+      <img class="article-3-img" src="/images/npm.png" alt="" />
+      <p class="m-auto" style="width: 18rem">
+        Check out a list of 30 best NPM packages for 2022.
+      </p>
+      <a
+        class="text-center"
+        style="margin: 5% 0 0 0%; display: block"
+        href="https://colorlib.com/wp/npm-packages-node-js/"
+        >Best packages</a
+      >
+      <p class="article-3-attr">
+        <a href="https://iconscout.com/icons/npm" target="_blank">Npm Icon</a>
+        by
+        <a href="https://iconscout.com/contributors/icon-mafia" target="_blank"
+          >Icon Mafia</a
+        >
+      </p>
     </div>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="/javascripts/particles.js"></script>
+<script src="/javascripts/colorPicker.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
     function handleDragStart(e) {
@@ -63,6 +89,7 @@
       if (dragSrcEl !== this) {
         dragSrcEl.innerHTML = this.innerHTML;
         this.innerHTML = e.dataTransfer.getData("text/html");
+        resetPicker();
       }
       return false;
     }

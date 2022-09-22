@@ -127,7 +127,12 @@
     //convert code so it displays multiline
     let str = data.code;
     console.log("original " + str);
-    str = str.replace(/\^\^/g, "\n").replace(/\^pr/g, "\)");
+    str = str
+      .replace(/\^\^/g, "\n")
+      .replace(/\^pr/g, "\)")
+      .replace(/\!qt/g, "`")
+      .replace(/\$nm\$/g, "name")
+      .replace(/\!em\!/g, "label");
     console.log(str);
     //create the actual snippet on the page
     createSnippet(data.name, data.sid, str, data.lang, data.label);
