@@ -53,7 +53,6 @@ router.post("/snippets/create", isLoggedIn, (req, res) => {
     .save()
     .then(res.redirect("/user/snippets"))
     .catch((err) => console.log(err));
-  res.send("ITS WORKING YALL");
 });
 //POST delete route
 router.post("/snippets/:sid/delete", isLoggedIn, (req, res) => {
